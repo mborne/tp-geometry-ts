@@ -16,11 +16,24 @@ export default class LineString implements Geometry {
         return this.getNumPoints() == 0 ? true : false;
     }
 
-    getNumPoints() {
+    getNumPoints(): number {
         return this.points ? this.points.length : 0;
     }
 
-    getPointN(n:number) {
-        return this.points ? this.points[n] : Number.NaN;
+    getPointN(n:number): Point {
+        return this.points ? this.points[n] : new Point();
     }
+
+    translate(dx: number, dy: number): void {
+        if (!this.isEmpty()) {
+            for (let index = 0; index < this.getNumPoints(); index++) {
+                this.getPointN(index).translate(dx,dy);
+            }
+        }
+    }
+/*
+    clone(): LineString {
+        return new LineString(this.points);
+    }
+        */
 }
