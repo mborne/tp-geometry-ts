@@ -24,5 +24,13 @@ describe("test LineString", () => {
         expect(ls.GetNumPoints()).to.equal(2);
         expect(ls.IsEmpty()).to.equal(false);
     });
-   
+    it("testons la translacion de tout les puntos de la ligne", () => {
+
+        const p = new Point([2.0,2.0]);
+        const p2 = new Point([3.0,4.0]);
+        const ls = new LineString([p,p2]);
+        ls.Translate(1.0,2.0)
+        const pt_result = new Point([3.0,4.0]);
+        expect(ls.GetPointN(0)).to.deep.equal(pt_result)
+    });
 });

@@ -18,6 +18,14 @@ export default class LineString implements Geometry {
         return this.GetNumPoints() == 0 ? true : false;
     }
 
+    Translate(dx: number, dy: number){
+        
+        this.points.forEach((pt) => {
+            pt.Translate(dx,dy);
+        }
+        )
+    }
+
     GetNumPoints() : number {
         return this.points.length;
     }

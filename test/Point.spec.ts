@@ -20,3 +20,12 @@ describe("test Point", () => {
     });
 });
 
+describe("Test Translation", () => {
+    it("testons la translacion du punto", () => {
+        let p = new Point([3.0,4.0]);
+        p.Translate(1.0,1.0);
+        expect(p.getCoordinate()).to.deep.equal([4.0,5.0]);
+        
+    });
+});
+

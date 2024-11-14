@@ -15,7 +15,14 @@ export default class Point implements Geometry {
 
   IsEmpty(): boolean {
     return this.coordinate == null ? true : false;
-}
+  }
+
+  Translate(dx: number, dy: number) {
+    dx = this.x() + dx;
+    dy = this.y() + dy;
+    this.coordinate[0] = dx;
+    this.coordinate[1] = dy;
+  }
 
   getCoordinate(): Coordinate {
     return this.coordinate;
