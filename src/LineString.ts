@@ -20,13 +20,20 @@ export default class Linestring implements Geometry {
     }
   
     getNumPoints(): number {
-      return this.points.lastIndexOf(this.points[-1])-1;
+      return this.points.length;
     }
 
     
   
     getPointN(n : number): Point {
       return this.points[n];
+    }
+
+    isEmpty(): boolean {
+        if (this.points.length === 1){
+            return this.getPointN(0).isEmpty()
+        }
+        return this.points.length === 0
     }
   
   }

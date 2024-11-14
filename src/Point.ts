@@ -8,10 +8,13 @@ export default class Point implements Geometry {
     this.coordinate = coordinate ;
   }
 
+  isEmpty(): boolean {
+    return Number.isNaN(this.x())||Number.isNaN(this.y());
+  }
   getType(): string {
     return "Point";
   }
-  
+
   getCoordinate(): Coordinate {
     return this.coordinate;
   }

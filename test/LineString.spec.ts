@@ -4,11 +4,12 @@ import LineString from "../src/LineString";
 import Point from "../src/Point";
 
 describe("test LineString", () => {
-    it("test default constructor", () => {
+    it("test default constructor and isEmpty() with default", () => {
         it("test default constructor", () => {
             const l = new LineString();  
             expect(l.getPoints()).to.deep.equal([]);  
-            expect(l.getNumPoints()).to.equal(0);  
+            expect(l.getNumPoints()).to.equal(0);
+            expect(l.isEmpty()).to.equal(true);  
         });
     });
     it("test constructor with coordinates", () => {
@@ -29,5 +30,12 @@ describe("test LineString", () => {
         const p2 = new Point([2.0,7.0]);
         const l = new LineString([p1,p2]);
         expect(l.getType()).to.deep.equal("LineString");     
+    });
+
+    it("test isEmpty()", () => {
+        const p1 = new Point([3.0,4.0]);
+        const p2 = new Point([2.0,7.0]);
+        const l = new LineString([p1,p2]);
+        expect(l.isEmpty()).to.deep.equal(false);     
     });
 });
