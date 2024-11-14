@@ -35,4 +35,11 @@ describe("test LineString", () => {
         expect(points.getPointN(0)).to.deep.equal(new Point([4.0,5.0]));
         expect(points.getPointN(1)).to.deep.equal(new Point([3.0,6.0]));
     });
+
+    it("test clone", () => {
+        const clone = points.clone();
+        expect(clone.getPointN(0)).to.deep.equal(points.getPointN(0));
+        clone.translate(1.0,1.0);
+        expect(clone.getPointN(0)).to.not.deep.equal(points.getPointN(0));
+    });
 });

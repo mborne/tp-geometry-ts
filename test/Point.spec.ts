@@ -33,9 +33,11 @@ describe("test Point", () => {
         expect(p2.x()).to.deep.equal(4.0);
         expect(p2.y()).to.deep.equal(5.0);
     });
-/*
+
     it("test clone", () => {
-        expect(p2.clone()).to.equal(p2);
+        const clone = p2.clone();
+        expect(clone.getCoordinate()).to.deep.equal(p2.getCoordinate());
+        clone.translate(1.0,1.0);
+        expect(clone.getCoordinate()).to.not.deep.equal(p2.getCoordinate());
     });
-    */
 });
