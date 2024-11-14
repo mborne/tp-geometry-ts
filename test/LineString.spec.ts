@@ -7,14 +7,14 @@ describe("test LineString", () => {
     const p1 = new Point([3.0,4.0]);
     const p2 = new Point([2.0,5.0]);
     const points = new LineString([p1,p2]);
+    const pointsEmpty = new LineString();
 
     it("test default constructor", () => {
-        const pointsEmpty = new LineString();
         expect(pointsEmpty.getNumPoints()).to.equal(0);
         expect(Number.isNaN(pointsEmpty.getPointN(1)));
     });
 
-    it("test constructor with coordinates", () => {
+    it("test constructor with points", () => {
         expect(points.getNumPoints()).to.equal(2);
         expect(points.getPointN(1)).to.equal(p2);
 
@@ -25,7 +25,6 @@ describe("test LineString", () => {
     });
 
     it("test isEmpty", () => {
-        const pointsEmpty = new LineString();
         expect(points.isEmpty()).to.equal(false);
         expect(pointsEmpty.isEmpty()).to.equal(true);
     });
