@@ -18,6 +18,16 @@ export default class LineString implements Geometry {
         return this.GetNumPoints() == 0 ? true : false;
     }
 
+    Clone(): LineString {
+        
+        let n_pts : Array<Point> = [];
+        this.points.forEach((pts) => {
+            n_pts.push(pts.Clone());
+        })
+
+        return new LineString(n_pts);
+    }
+
     Translate(dx: number, dy: number){
         
         this.points.forEach((pt) => {

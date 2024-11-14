@@ -24,6 +24,10 @@ export default class Point implements Geometry {
     this.coordinate[1] = dy;
   }
 
+  Clone(): Point {
+    return new Point([this.x(),this.y()]);
+  }
+
   getCoordinate(): Coordinate {
     return this.coordinate;
   }

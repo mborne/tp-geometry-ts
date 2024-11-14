@@ -33,4 +33,16 @@ describe("test LineString", () => {
         const pt_result = new Point([3.0,4.0]);
         expect(ls.GetPointN(0)).to.deep.equal(pt_result)
     });
+    it("testons le clonage de la ligne", () => {
+        const p = new Point([2.0,2.0]);
+        const p2 = new Point([3.0,4.0]);
+        const ls = new LineString([p,p2]);
+        const ls_clone = ls.Clone();
+        ls_clone.Translate(4.0,4.0);
+        // Test si la translation diffère de la ligne d'origine
+        expect(ls_clone.GetPointN(0)).not.equal(ls.GetPointN(0));
+        console.log(ls.GetPointN(0));
+        console.log(ls_clone.GetPointN(0));
+        
+    });
 });
