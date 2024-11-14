@@ -19,6 +19,10 @@ export default class Point implements Geometry {
     }
   }
 
+  clone() : Geometry {
+      return new Point([this.x(),this.y()])
+  }
+
   getType(): string {
     return "Point";
   }

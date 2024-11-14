@@ -69,4 +69,16 @@ describe("test LineString", () => {
         l.translate(1,3)
         expect(l).to.deep.equal(new LineString([new Point([4.0,7.0]),new Point([3.0,10.0])]));     
     });
+
+    it("test clone", () => {
+        const p1 = new Point([3.0,4.0]);
+        const p2 = new Point([2.0,7.0]);
+        const l = new LineString([p1,p2]);
+        const l_copy = l.clone();
+        
+        l.translate(1,3)
+        l_copy.translate(-1,4)
+        expect(l).to.deep.equal(new LineString([new Point([4.0,7.0]),new Point([3.0,10.0])]));
+        expect(l_copy).to.deep.equal(new LineString([new Point([2.0,8.0]),new Point([1.0,11.0])]));     
+    });
 });

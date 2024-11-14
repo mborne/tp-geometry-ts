@@ -28,6 +28,16 @@ export default class Linestring implements Geometry {
       return this.points[n];
     }
 
+    clone(): Geometry{
+        let l = new Linestring();
+        function ajout(point: Point){
+            let p2 = new Point([point.x(),point.y()])
+            l.points.push(p2)
+        }
+        this.points.forEach(ajout);
+        return l
+    }
+
     isEmpty(): boolean {
         
         return this.points.length === 0 
