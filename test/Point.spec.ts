@@ -8,12 +8,15 @@ describe("test Point", () => {
         expect(p.getCoordinate()).to.equal(undefined);
         expect(Number.isNaN(p.x()));
         expect(Number.isNaN(p.y()));
+        expect(p.IsEmpty()).to.equal(true);
     });
     it("test constructor with coordinates", () => {
         const p = new Point([3.0,4.0]);
+        expect(p.GetType()).to.equal("Point");
         expect(p.getCoordinate()).to.deep.equal([3.0,4.0]);
         expect(p.x()).to.equal(3.0);
         expect(p.y()).to.equal(4.0);
+        expect(p.IsEmpty()).to.equal(false);
     });
 });
 

@@ -13,16 +13,20 @@ export default class Point implements Geometry {
     return "Point";
   }
 
+  IsEmpty(): boolean {
+    return this.coordinate == null ? true : false;
+}
+
   getCoordinate(): Coordinate {
     return this.coordinate;
   }
 
   x(): number {
-    return this.coordinate ? this.coordinate[0] : Number.NaN ;
+    return !this.IsEmpty() ? this.coordinate[0] : Number.NaN ;
   }
 
   y(): number {
-    return this.coordinate ? this.coordinate[1] : Number.NaN ;
+    return !this.IsEmpty() ? this.coordinate[1] : Number.NaN ;
   }
 
 }
