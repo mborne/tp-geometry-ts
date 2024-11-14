@@ -2,15 +2,23 @@ import Coordinate from "./Coordinate";
 import Geometry from  "./Geometry";
 
 export default class Point implements Geometry {
-  private coordinate?: Coordinate;
+  private coordinate: Coordinate;
 
-  constructor(coordinate?: Coordinate) {
+  constructor(coordinate: Coordinate  = []) {
     this.coordinate = coordinate ;
   }
 
   isEmpty(): boolean {
     return Number.isNaN(this.x())||Number.isNaN(this.y());
   }
+
+  translate(dx :number, dy :number) :void {
+    if (!this.isEmpty()){
+    this.coordinate[0] = this.x() + dx;
+    this.coordinate[1] = this.y() + dy;
+    }
+  }
+
   getType(): string {
     return "Point";
   }
@@ -20,11 +28,19 @@ export default class Point implements Geometry {
   }
 
   x(): number {
-    return this.coordinate ? this.coordinate[0] : Number.NaN ;
+    if (this.coordinate.length === 0)
+      {
+        return Number.NaN
+      }
+    return this.coordinate[0];
   }
 
   y(): number {
-    return this.coordinate ? this.coordinate[1] : Number.NaN ;
+    if (this.coordinate.length === 0)
+      {
+        return Number.NaN
+      }
+    return this.coordinate[1];
   }
 
 }
