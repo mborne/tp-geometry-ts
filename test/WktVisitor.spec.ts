@@ -1,8 +1,8 @@
 import "mocha";
 import { expect } from "chai";
+import WktVisitor from "../src/WktVisitor";
 import Point from "../src/Point";
 import LineString from "../src/LineString";
-import WktVisitor from "../src/WktVisitor";
 import GeometryCollection from "../src/GeometryCollection";
 
 

@@ -1,9 +1,10 @@
 import "mocha";
 import { expect } from "chai";
+import LogGeometryVisitor from "../src/LogGeometryVisitor";
 import Point from "../src/Point";
 import LineString from "../src/LineString";
-import LogGeometryVisitor from "../src/LogGeometryVisitor";
 import GeometryCollection from "../src/GeometryCollection";
+
 
 describe("test LogGeometryVisitor", () => {
     
