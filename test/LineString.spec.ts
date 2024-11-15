@@ -48,8 +48,9 @@ describe("test LineString", () => {
     it("testons l'enveloppage d'une ligne", () => {
         const p = new Point([2.0,2.0]);
         const p2 = new Point([3.0,4.0]);
-        const ls = new LineString([p,p2]);
-        expect(ls.GetEnveloppe())
+        const p3 = new Point([5.0,-4.0]);
+        const ls = new LineString([p,p2,p3]);
+        console.log(ls.GetEnveloppe());
         
     });
 });

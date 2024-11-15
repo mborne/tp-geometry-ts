@@ -33,9 +33,10 @@ export default class LineString implements Geometry {
     GetEnveloppe(): Enveloppe {
 
         const env = new EnveloppeBuilder();
-        for (const pts of this.points){
-            env.Insert(pts.getCoordinate());
-        }
+        this.points.forEach((pts) => {
+            const coord = pts.getCoordinate();
+            env.Insert(coord);
+        })
         return env.Build();
     }
 
