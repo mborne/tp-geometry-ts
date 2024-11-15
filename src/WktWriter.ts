@@ -23,7 +23,7 @@ export default class WktWriter {
                     wktlinestring += geometry.getPointN(index).y();
                     wktlinestring += ",";
                 }
-            return wktlinestring.slice(0,-1) + ")";
+                return wktlinestring.slice(0,-1) + ")";
             };
         }else{
             throw new TypeError("geometry type not supported");
