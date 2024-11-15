@@ -1,6 +1,7 @@
 import Enveloppe from "./Enveloppe";
 import EnveloppeBuilder from "./EnveloppeBuilder";
 import Geometry from "./Geometry";
+import LogGeometryVisitor from "./LogGeometryVisitor";
 import Point from "./Point";
 
 export default class LineString implements Geometry {
@@ -29,6 +30,10 @@ export default class LineString implements Geometry {
 
         return new LineString(n_pts);
     }
+
+    Accept(lgv : LogGeometryVisitor){
+        lgv.VisitLineString(this);
+      }
 
     GetEnveloppe(): Enveloppe {
 

@@ -2,6 +2,7 @@ import Coordinate from "./Coordinate";
 import Enveloppe from "./Enveloppe";
 import EnveloppeBuilder from "./EnveloppeBuilder";
 import Geometry from "./Geometry";
+import LogGeometryVisitor from "./LogGeometryVisitor";
 
 export default class Point implements Geometry {
 
@@ -24,6 +25,10 @@ export default class Point implements Geometry {
     dy = this.y() + dy;
     this.coordinate[0] = dx;
     this.coordinate[1] = dy;
+  }
+
+  Accept(lgv : LogGeometryVisitor){
+    lgv.VisitPoint(this);
   }
 
   Clone(): Point {
