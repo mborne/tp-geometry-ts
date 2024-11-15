@@ -46,16 +46,6 @@ export default class LineString extends AbstractGeometry {
         }
     }
 
-    getEnvelope(): Envelope {
-        if (!this.isEmpty()) {
-            const envB = new EnvelopeBuilder();
-            this.points.forEach(element => {
-                envB.insert(element.getCoordinate());
-            });
-            return envB.build();
-        }
-    }
-
     accept(visitor: GeometryVisitor): void {
         visitor.visitLineString(this);
       }

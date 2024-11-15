@@ -45,12 +45,6 @@ export default class Point extends AbstractGeometry {
     }
   }
 
-  getEnvelope(): Envelope {
-    const envB = new EnvelopeBuilder();
-    envB.insert(this.coordinate);
-    return envB.build();
-  }
-
   accept(visitor: GeometryVisitor): void {
     visitor.visitPoint(this);
   }
