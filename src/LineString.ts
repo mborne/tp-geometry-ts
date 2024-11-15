@@ -1,7 +1,5 @@
 import AbstractGeometry from "./AbstractGeometry";
-import Envelope from "./Envelope";
 import Point from "./Point";
-import EnvelopeBuilder from "./EnvelopeBuilder";
 import GeometryVisitor from "./GeometryVisitor";
 
 export default class LineString extends AbstractGeometry {
@@ -40,7 +38,7 @@ export default class LineString extends AbstractGeometry {
         if (!this.isEmpty()) {
             const pointsClone = new Array<Point>;
             this.points.forEach(element => {
-                pointsClone.push(new Point([element.x(),element.y()]))
+                pointsClone.push(new Point([element.x(),element.y()]));
             });
             return new LineString(pointsClone);
         }

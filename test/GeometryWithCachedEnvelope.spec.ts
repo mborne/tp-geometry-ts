@@ -26,7 +26,6 @@ describe("test GeometryWithCachedEnvelope", () => {
 
     it("test translate", () => {
         const c = g.getEnvelope();
-        console.log(c.toString());
         g.translate(1.0,1.0);
         const d = g.getEnvelope();
         expect(d).to.not.deep.equal(c);

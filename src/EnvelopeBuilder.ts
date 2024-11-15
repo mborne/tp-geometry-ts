@@ -3,6 +3,7 @@ import Envelope from "./Envelope";
 import GeometryVisitor from "./GeometryVisitor";
 import Point from "./Point";
 import LineString from "./LineString";
+import GeometryCollection from "./GeometryCollection";
 
 export default class EnvelopeBuilder implements GeometryVisitor {
     private xmin: number;
@@ -27,6 +28,14 @@ export default class EnvelopeBuilder implements GeometryVisitor {
         if (!points.isEmpty()) {
             for (let index = 0; index < points.getNumPoints(); index++) {
                 this.insert(points.getPointN(index).getCoordinate());   
+            }
+        }
+    }
+
+    visitGeometryCollection(geoms: GeometryCollection): void {
+        if (!geoms.isEmpty()) {
+            for (let index = 0; index < geoms.getNumGeometries(); index++) {
+                geoms.getGeometryN(index).accept(this);
             }
         }
     }
