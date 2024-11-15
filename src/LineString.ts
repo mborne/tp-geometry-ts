@@ -1,3 +1,4 @@
+import AbstractGeometry from "./AbstractGeometry";
 import Enveloppe from "./Enveloppe";
 import EnveloppeBuilder from "./EnveloppeBuilder";
 import Geometry from "./Geometry";
@@ -6,11 +7,12 @@ import LogGeometryVisitor from "./LogGeometryVisitor";
 import Point from "./Point";
 import WktVisitor from "./WktVisitor";
 
-export default class LineString implements Geometry {
+export default class LineString extends AbstractGeometry {
 
     private points?: Array<Point>;
 
     constructor(points?: Array<Point>){
+        super();
         this.points = points ? points : [];
     }
 
@@ -62,5 +64,7 @@ export default class LineString implements Geometry {
     GetPointN(n:number) : Point{
         return this.points[n];
     }
+
+
 
   }

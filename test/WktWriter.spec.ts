@@ -4,6 +4,7 @@ import Point from "../src/Point";
 import WktWriter from "../src/WktWriter";
 import WktVisitor from "../src/WktVisitor";
 import LogGeometryVisitor from "../src/LogGeometryVisitor";
+import Enveloppe from "../src/Enveloppe";
 
 
 
@@ -53,14 +54,33 @@ describe("test Wkt Transformation", () => {
     it("Test ligne avec un Visitor",() => {
 
         const visitor2 = new WktVisitor();
-        const p = new Point([2.0,2.0]);
+        const p = new Point([2.2,2.0]);
         const p2 = new Point([3.0,4.0]);
         const p3 = new Point([5.0,-4.0]);
         const geometry2 = new LineString([p,p2,p3]);
         geometry2.Accept(visitor2);
         const wkt = visitor2.GetResult();
         console.log(wkt);
-        expect(wkt).to.equal("LINESTRING(2 2, 3 4, 5 -4)");
+        expect(wkt).to.equal("LINESTRING(2.2 2, 3 4, 5 -4)");
 
     });
+    it("Test point vide avec un Visitor",() => {
+        const visitor = new WktVisitor();
+        const geometry = new Point();
+        geometry.Accept(visitor);
+        const wkt = visitor.GetResult();
+        expect(wkt).to.equal("POINT EMPTY");
+
+    });
+    it("Test ligne vide avec un Visitor",() => {
+
+        const visitor2 = new WktVisitor();
+        const geometry2 = new LineString();
+        geometry2.Accept(visitor2);
+        const wkt = visitor2.GetResult();
+        expect(wkt).to.equal("LINESTRING EMPTY");
+
+    });
+    
+
 });

@@ -1,3 +1,4 @@
+import AbstractGeometry from "./AbstractGeometry";
 import Coordinate from "./Coordinate";
 import Enveloppe from "./Enveloppe";
 import EnveloppeBuilder from "./EnveloppeBuilder";
@@ -6,11 +7,12 @@ import GeometryVisitor from "./GeometryVisitor";
 import LogGeometryVisitor from "./LogGeometryVisitor";
 import WktVisitor from "./WktVisitor";
 
-export default class Point implements Geometry {
+export default class Point extends AbstractGeometry{
 
   private coordinate?: Coordinate;
 
   constructor(coordinate?: Coordinate) {
+    super();
     this.coordinate = coordinate ;
   }
 
@@ -54,5 +56,6 @@ export default class Point implements Geometry {
   y(): number {
     return !this.IsEmpty() ? this.coordinate[1] : Number.NaN ;
   }
+
 
 }

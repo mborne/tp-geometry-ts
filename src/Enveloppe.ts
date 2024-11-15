@@ -19,7 +19,7 @@ export default class Enveloppe {
     }
 
     IsEmpty() : boolean {
-        return this.bottomleft.length == 0 ? true : false;
+        return this.bottomleft[0] == Infinity ? true : false;
     }
 
     GetYmin(): number {

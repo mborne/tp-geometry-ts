@@ -1,4 +1,5 @@
 import Enveloppe from "./Enveloppe";
+import GeometryVisitor from "./GeometryVisitor";
 
 export default interface Geometry{
     GetType(): string;
@@ -6,4 +7,7 @@ export default interface Geometry{
     Translate(dx:number,dy:number);
     Clone(): Geometry;
     GetEnveloppe() : Enveloppe;
+    Accept(lgv:GeometryVisitor);
+    AsText():String;
+
 }

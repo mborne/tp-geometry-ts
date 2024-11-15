@@ -27,4 +27,15 @@ describe("test Enveloppe", () => {
         
         
     });
+    it("Buildage d'une enveloppe vide", () => {
+
+        const builder = new EnveloppeBuilder();
+    
+        const result = builder.Build();
+        console.log(result);
+        expect(result.IsEmpty()).to.be.true;
+    
+            
+            
+        });
 });
