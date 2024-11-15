@@ -9,25 +9,24 @@ export default class WktWriter {
  
     Write(Geometry: Geometry):String{
 
-        let msg = "";
+       
 
         if ( Geometry instanceof Point ){
             if (Geometry.IsEmpty()){
-                msg = "POINT EMPTY";
+                return "POINT EMPTY";
             }
             else {
-                msg = "POINT ("+ Geometry.x() +" "+ Geometry.y() +")";
+                return "POINT ("+ Geometry.x() +" "+ Geometry.y() +")";
             }
            
 
         }
         else if (Geometry instanceof LineString) {
             if (Geometry.IsEmpty()){
-                msg = "LINESTRING EMPTY";
+                return "LINESTRING EMPTY";
             }
             else {
-                msg = "LINESTRING (";
-          
+                
                 const coords = [];
                 
                 for (let i = 0; i < Geometry.GetNumPoints(); i++) {
@@ -35,9 +34,8 @@ export default class WktWriter {
                     coords.push(point.x() + " " + point.y());  
                 }
                 
-                msg += coords.join(", "); 
-                
-                msg += ")";
+                return `LINESTRING(${coords.join(", ")})`; 
+
             }
            
         }
@@ -45,6 +43,6 @@ export default class WktWriter {
             throw new TypeError("geometry type not supported");
         }
 
-        return msg;
+    
     }
 }

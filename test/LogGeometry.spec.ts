@@ -9,7 +9,8 @@ describe("test GeomLog", () => {
    
         const p = new Point([3.0,1.0]);
         const visitor = new LogGeometryVisitor();
-        p.Accept(visitor);
+        expect(p.Accept(visitor));
+
         
     });
 
@@ -19,7 +20,8 @@ describe("test GeomLog", () => {
         const p2 = new Point([4.0,1.0]);
         const ls = new LineString([p,p2]);
         const visitor = new LogGeometryVisitor();
-        ls.Accept(visitor);
+        expect(ls.Accept(visitor));
+        
         
     });
     it("tests vide", () => {
@@ -27,8 +29,8 @@ describe("test GeomLog", () => {
         const p = new Point();
         const ls = new LineString();
         const visitor = new LogGeometryVisitor();
-        p.Accept(visitor);
-        ls.Accept(visitor);
+        expect(p.Accept(visitor));
+        expect(ls.Accept(visitor));
         
         
 
