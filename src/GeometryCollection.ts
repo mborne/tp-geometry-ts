@@ -1,5 +1,4 @@
 import AbstractGeometry from "./AbstractGeometry";
-import Envelope from "./Envelope";
 import Geometry from "./Geometry";
 import GeometryVisitor from "./GeometryVisitor";
 
