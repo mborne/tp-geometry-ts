@@ -1,3 +1,5 @@
+import Enveloppe from "./Enveloppe";
+import EnveloppeBuilder from "./EnveloppeBuilder";
 import Geometry from "./Geometry";
 import Point from "./Point";
 
@@ -26,6 +28,15 @@ export default class LineString implements Geometry {
         })
 
         return new LineString(n_pts);
+    }
+
+    GetEnveloppe(): Enveloppe {
+
+        const env = new EnveloppeBuilder();
+        for (const pts of this.points){
+            env.Insert(pts.getCoordinate());
+        }
+        return env.Build();
     }
 
     Translate(dx: number, dy: number){

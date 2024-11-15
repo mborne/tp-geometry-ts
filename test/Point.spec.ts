@@ -35,6 +35,11 @@ describe("test Point", () => {
         console.log(p);
         console.log(p_clone);
     });
+    it("testons l'enveloppage du point unique", () => {
+        const p = new Point([3.0,4.0]);
+        console.log(p.GetEnveloppe());
+        
+    });
 });
 
 
