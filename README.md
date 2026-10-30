@@ -2,7 +2,7 @@
 
 ## Description
 
-Projet de démarrage pour le [TP - Mise en oeuvre des patterns sur des Geometry](https://mborne.github.io/cours-patron-conception/annexe/tp-geometry/) associé au cours sur [les patrons de conception](https://mborne.github.io/cours-patron-conception/)
+Projet de démarrage pour le [TP - Patrons de conception avec des classes géométriques](https://mborne.github.io/architecture/patrons-conception/tp-geometry-ts/) associé au cours sur [les patrons de conception](https://mborne.github.io/cours-patron-conception/)
 
 ## Principes
 
