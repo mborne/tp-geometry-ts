@@ -1,5 +1,0 @@
-{
-    "recursive": true,
-    "extension": ["ts", "tsx"],
-    "node-option": ["import=tsx"]
-}
