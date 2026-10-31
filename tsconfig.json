@@ -1,9 +1,11 @@
 {
     "compilerOptions": {
+        "rootDir": "./src",
         "outDir": "./dist",
-        "lib": ["es6","dom"],
-        "target": "es5",
-        "allowJs": true
+        "lib": ["es2022","dom"],
+        "target": "es2022",
+        "allowJs": true,
+        "strict": false
     },
     "include": ["src/**/*"],
 }
