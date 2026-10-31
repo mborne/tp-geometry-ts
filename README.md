@@ -8,7 +8,7 @@ Projet de démarrage pour le [TP - Patrons de conception avec des classes géom�
 
 * La branche par défaut permet de récupérer un projet pour commencer à travailler
 * Les branches 0.1, 0.2, etc. correspondront aux réponses pour chaque question du TP
-* mocha est utilisé pour l'écriture de tests unitaires
+* [Vitest](https://vitest.dev/) est utilisé pour l'écriture de tests unitaires
 
 ## Utilisation
 
@@ -17,6 +17,8 @@ Projet de démarrage pour le [TP - Patrons de conception avec des classes géom�
 npm install
 # exécuter les tests
 npm run test
+# exécuter les tests en continu à chaque modification (mode watch)
+npx vitest
 # exécuter les tests avec rapport de couverture
 npm run coverage
 # pour visualiser le rapport de couverture

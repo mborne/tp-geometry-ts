@@ -1,5 +1,4 @@
-import "mocha";
-import { expect } from "chai";
+import { describe, it, expect } from "vitest";
 import Point from "../src/Point";
 
 describe("test Point", () => {
