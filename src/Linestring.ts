@@ -5,19 +5,19 @@ export default class Linestring implements Geometry {
 
     private points: Point[];
 
-    constructor(points?:Point[]){
+    constructor(points?: Point[]) {
         this.points = points ? points : []; // comme ça le point est toujours défini comme un tableau vide pour éviter le plantage
     }
-    
+
     getType(): string {
         return "LineString"
     }
 
     getNumPoints(): number {
-        return this.points.length 
+        return this.points.length
     }
 
-    getPointN (n: number){
+    getPointN(n: number) {
         return this.points[n];
     }
 
@@ -25,10 +25,15 @@ export default class Linestring implements Geometry {
         return this.points.length === 0;
     }
 
-    translate(dx: number, dy:number){
-    for (let index of this.points) {
-        index.translate(dx,dy);
+    translate(dx: number, dy: number) {
+        for (let index of this.points) {
+            index.translate(dx, dy);
+        }
     }
-  }
-S
+
+    clone(): Linestring {
+        const pointcopied = this.points.map(point => point.clone());
+        return new Linestring (pointcopied)
+    }
+
 }
