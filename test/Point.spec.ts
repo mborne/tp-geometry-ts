@@ -9,21 +9,27 @@ describe("test Point", () => {
         expect(Number.isNaN(p.y())).to.be.true;
     });
     it("test constructor with coordinates", () => {
-        const p = new Point([3.0,4.0]);
-        expect(p.getCoordinate()).to.deep.equal([3.0,4.0]);
+        const p = new Point([3.0, 4.0]);
+        expect(p.getCoordinate()).to.deep.equal([3.0, 4.0]);
         expect(p.x()).to.equal(3.0);
         expect(p.y()).to.equal(4.0);
     });
-    
+
     it("should return 'Point' for getType()", () => {
-        const p = new Point ();
-        expect (p.getType()).to.equal("Point");
+        const p = new Point();
+        expect(p.getType()).to.equal("Point");
     });
 
     it("return True or False if the coordinates of Point are empty", () => {
-            const g = new Point ([]);
-            expect(g.isEmpty()).to.be.true;
-        });
+        const g = new Point([]);
+        expect(g.isEmpty()).to.be.true;
+    });
+
+    it("should translate a point", () => {
+        const g = new Point([3.0, 4.0]);
+        g.translate(1, 1);
+        expect(g.getCoordinate()).to.deep.equal([4.0, 5.0]);
+    });
 
 });
 
