@@ -53,5 +53,20 @@ describe("test Linestring", () => {
         expect(g.getPointN(1).y()).to.equal(5.0);
     });
 
+    it("should translate a LineString", () => {
+        const g = new Linestring([
+            new Point([0.0, 0.0]),
+            new Point([3.0, 4.0])
+        ]);
+
+        const g2 = g.clone()
+        g2.translate(1, 1);
+        expect(g2.getPointN(0).x()).to.equal(1.0);
+        expect(g2.getPointN(0).y()).to.equal(1.0);
+
+        expect(g2.getPointN(1).x()).to.equal(4.0);
+        expect(g2.getPointN(1).y()).to.equal(5.0);
+    });
+
 });
 

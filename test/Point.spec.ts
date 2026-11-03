@@ -33,9 +33,9 @@ describe("test Point", () => {
 
     it("should translate a cloned point", () => {
         const g = new Point([3.0, 4.0]);
-        g.translate(1, 1);
 
         const g2 = g.clone()
+        g2.translate(1, 1);
         expect(g2.getCoordinate()).to.deep.equal([4.0, 5.0])
     });
 
