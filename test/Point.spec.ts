@@ -19,5 +19,11 @@ describe("test Point", () => {
         const p = new Point ();
         expect (p.getType()).to.equal("Point");
     });
+
+    it("return True or False if the coordinates of Point are empty", () => {
+            const g = new Point ([]);
+            expect(g.isEmpty()).to.be.true;
+        });
+
 });
 

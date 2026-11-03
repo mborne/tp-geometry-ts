@@ -24,4 +24,7 @@ export default class Point implements Geometry {
     return this.coordinate ? this.coordinate[1] : Number.NaN ;
   }
 
+  isEmpty(): boolean {
+    return this.coordinate.length === 0;
+  }
 }

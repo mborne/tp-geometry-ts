@@ -34,5 +34,10 @@ describe("test Linestring", () => {
         const g = new Linestring ();
         expect (g.getType()).to.equal("LineString");
     });
+
+    it("return True or False if the coordinates of Point are empty", () => {
+        const g = new Linestring ();
+        expect(g.isEmpty()).to.be.true;
+    });
 });
 
