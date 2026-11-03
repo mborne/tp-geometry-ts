@@ -31,6 +31,14 @@ describe("test Point", () => {
         expect(g.getCoordinate()).to.deep.equal([4.0, 5.0]);
     });
 
+    it("should translate a cloned point", () => {
+        const g = new Point([3.0, 4.0]);
+        g.translate(1, 1);
+
+        const g2 = g.clone()
+        expect(g2.getCoordinate()).to.deep.equal([4.0, 5.0])
+    });
+
     it("shouldn't translate an empty point", () => {
         const g = new Point();
         g.translate(1,1);
