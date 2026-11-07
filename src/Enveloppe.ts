@@ -3,7 +3,7 @@ import Coordinate from "./Coordinate";
 export default class Enveloppe {
   private bottomLeft: Coordinate;
   private topRight: Coordinate;
-constructor(bottomLeft: Coordinate,topRight: Coordinate ) {
+constructor(bottomLeft?: Coordinate,topRight?: Coordinate ) {
     this.bottomLeft = bottomLeft ? bottomLeft : [];
     this.topRight = topRight ? topRight : [];
 }
@@ -29,7 +29,7 @@ getYmax() : number {
 }
 
 toString(): string {
-    return `[${this.getXmin()}, ${this.getXmax}, ${this.getYmin}, ${this.getYmax}]`
+    return `[${this.getXmin()}, ${this.getXmax()}, ${this.getYmin}, ${this.getYmax}]`
 }
 
 }
