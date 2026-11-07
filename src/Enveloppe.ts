@@ -13,23 +13,23 @@ isEmpty() : boolean {
 }
 
 getXmin() : number {
-    return this.bottomLeft[0]
+    return this.isEmpty() ? Number.NaN : this.bottomLeft[0];
 }
 
 getXmax() : number {
-    return this.bottomLeft[1]
+    return this.isEmpty() ? Number.NaN : this.topRight[0];
 } 
 
 getYmin() : number {
-    return this.topRight[0]
+    return this.isEmpty() ? Number.NaN : this.bottomLeft[1];
 }
 
 getYmax() : number {
-    return this.topRight[1]
+    return this.isEmpty() ? Number.NaN : this.topRight[1];
 }
 
 toString(): string {
-    return `[${this.getXmin()}, ${this.getXmax()}, ${this.getYmin}, ${this.getYmax}]`
+    return `[${this.getXmin()}, ${this.getYmin()}, ${this.getXmax()}, ${this.getYmax()}]`;
 }
 
 }
