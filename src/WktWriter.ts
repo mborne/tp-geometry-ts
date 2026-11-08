@@ -25,6 +25,13 @@ export default class WktWriter {
         if (lineString.isEmpty()) {
             return "LINESTRING EMPTY";
         }
+        const coordinates: string[] = [];
+        for (let i = 0; i < lineString.getNumPoints(); i++) {
+            const point = lineString.getPointN(i);
+            coordinates.push(`${point.x()} ${point.y()}`);
+        }
+        return `LINESTRING(${coordinates.join(",")})`;
+
     }
 
 }
