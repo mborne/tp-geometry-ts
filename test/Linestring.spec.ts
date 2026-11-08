@@ -68,5 +68,28 @@ describe("test Linestring", () => {
         expect(g2.getPointN(1).y()).to.equal(5.0);
     });
 
+        it("should return an empty envelope for an empty LineString", () => {
+        const g = new Linestring();
+        expect(g.getEnvelope().isEmpty()).to.be.true;
+    });
+
+    it("should return the envelope of a LineString", () => {
+        const g = new Linestring([
+            new Point([0.0, 1.0]),
+            new Point([2.0, 0.0]),
+            new Point([1.0, 3.0])
+        ]);
+        expect(g.getEnvelope().toString()).to.equal("[0, 0, 2, 3]");
+    });
+
+    it("should update the envelope after a translation", () => {
+        const g = new Linestring([
+            new Point([0.0, 0.0]),
+            new Point([3.0, 4.0])
+        ]);
+        g.translate(10, 10);
+        expect(g.getEnvelope().toString()).to.equal("[10, 10, 13, 14]");
+    });
+
 });
 
