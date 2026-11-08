@@ -1,3 +1,5 @@
+import Enveloppe from "./Enveloppe";
+
 export default interface Geometry {
     getType(): string;
 
@@ -6,4 +8,6 @@ export default interface Geometry {
     translate(dx:number, dy:number);
 
     clone(): Geometry;
+
+    getEnvelope(): Enveloppe;
 }
